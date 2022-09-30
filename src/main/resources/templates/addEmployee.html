@@ -18,9 +18,9 @@
             <input type="text" name="phoneNumber"  placeholder="Phone number"><br>
             <input type="number" name="salary" placeholder="Salary"><br>
             <input type="text" name="position" placeholder="Position"><br>
-            <select name="company.id">
+            <select name="company">
                 <option th:each="company: ${companies}" th:text="${company.name}"
-                        th:value="${company.id}"></option>
+                        th:value="${company.id}" ></option>
             </select><br>
             <input type="file" name="employeeImage"><br>
             <button type="submit">Add</button>

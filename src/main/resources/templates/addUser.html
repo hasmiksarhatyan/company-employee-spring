@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add user</title>
+</head>
+<body>
+
+<div>
+    <div>
+        <h4>Add new user</h4>
+    </div>
+    <div>
+        <form action="/users/add" method="post" enctype="multipart/form-data">
+            <input type="text" name="name"  placeholder="Name"><br>
+            <input type="text" name="surname"  placeholder="Surname"><br>
+            <input type="email" name="email"  placeholder="Email"><br>
+            <input type="password" name="password"  placeholder="Password"><br>
+            <input type="hidden" name="role" value="USER">
+            <input type="file" name="userImage"><br>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -7,11 +7,22 @@
 </head>
 
 <body>
-
+<th:block th:fragment="header">
+    <div style="padding-left: 20%;height: 30px">
+        <th:block th:if="${currentUser != null}">
+            <span th:text="${currentUser.name}"></span>
+            <a href="/logout">Logout</a><br>
+            <a href="/users"> Users </a>
+        </th:block>
+        <th:block th:if="${currentUser == null}">
+            <a href="/login">Login</a>
+        </th:block>
+    </div>
+    <div style="height: 30px">
         <a href="/companies"> Companies </a>
         <a href="/employees"> Employees </a>
-
-
+    </div>
+</th:block>
 
 </body>
 </html>
