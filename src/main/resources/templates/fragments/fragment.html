@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+
+<body>
+<th:block th:fragment="header">
+    <div style="padding-left: 20%;height: 30px">
+        <a href="?lang=hy">Հայերեն</a>|<a href="?lang=ru">Русский</a>|<a href="?lang=en">English</a><br>
+        <th:block th:if="${currentUser != null}">
+            <span th:text="${currentUser.name}"></span>
+            <a href="/logout">Logout</a><br>
+            <div th:if="${currentUser.Role.name == 'MANAGER'}"><a href="/users"> Users </a></div>
+        </th:block>
+        <th:block th:if="${currentUser == null}">
+            <a href="/loginPage">Login</a>
+        </th:block>
+    </div>
+    <div style="height: 30px" >
+        <a href="/companies"> <span th:text="#{menu.companies}"></span> </a>
+        <a href="/employees"> Employees </a>
+    </div>
+</th:block>
+</body>
+</html>

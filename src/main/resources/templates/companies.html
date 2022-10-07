@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<th:block th:insert="/index::header"></th:block>
+<th:block th:insert="/fragments/fragment::header"></th:block>
 <div>
     <h2>Companies</h2>
 </div>
@@ -18,18 +18,27 @@
             <th>name</th>
             <th>employee count</th>
             <th>address</th>
+            <th th:if="${currentUser != null}">user</th>
         </tr>
-        <tr th:each="company: ${companies}">
+        <tr th:each="company: ${companies.content}">
             <td th:text="${company.id}"></td>
             <td th:text="${company.name}"></td>
             <td th:utext="${company.size}"></td>
             <td th:text="${company.address}"></td>
+            <td th:if="${currentUser != null}" th:text="${company.user.getName()}"></td>
             <td>
                 <a th:href="@{/companies/delete(id=${company.id})}">delete</a>
             </td>
         </tr>
     </table>
-
+    <table>
+    <th th:if="${companies.totalPages > 0}" class="pagination"
+         th:each="pageNumber : ${pageNumbers}">
+        <a th:href="@{/companies(size=${companies.size}, page=${pageNumber})}"
+           th:text="${pageNumber}"
+           th:class="${pageNumber==companies.number + 1} ? active"></a>
+    </th>
+    </table>
     <a href="/companies/add">Add company </a>
 </div>
 </body>

@@ -25,6 +25,8 @@ public class Employee {
     private String position;
     @ManyToOne
     private Company company;
+    @ManyToOne
+    private User user;
     private String profilePic;
 }
 

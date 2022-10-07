@@ -12,12 +12,14 @@
     </div>
     <div>
         <form action="/users/add" method="post" enctype="multipart/form-data">
-            <input type="text" name="name"  placeholder="Name"><br>
-            <input type="text" name="surname"  placeholder="Surname"><br>
-            <input type="email" name="email"  placeholder="Email"><br>
-            <input type="password" name="password"  placeholder="Password"><br>
+            <input type="text" name="name" placeholder="Name"><br>
+            <input type="text" name="surname" placeholder="Surname"><br>
+            <input type="email" name="email" placeholder="Email"><br>
+            <span style="color: red" th:if="${errorMessageEmail!=null}" th:text="${errorMessageEmail}"></span><br>
+            <input type="password" name="password" placeholder="Password"><br>
             <input type="hidden" name="role" value="USER">
-            <input type="file" name="userImage"><br>
+            <input type="file" name="userImage" accept="image/*"><br>
+            <span style="color: red" th:if="${errorMessageFile!=null}" th:text="${errorMessageFile}"></span><br>
             <button type="submit">Register</button>
         </form>
     </div>

@@ -20,4 +20,6 @@ public class Company {
     private String name;
     private int size;
     private String address;
+    @ManyToOne
+    private User user;
 }
